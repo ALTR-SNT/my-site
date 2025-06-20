@@ -1,10 +1,13 @@
 import Image from "next/image"
+import SomeText from "../components/SomeText"
 export default function About() {
   return (
     <>
     <main className="flex flex-col items-center min-h-screen gap-3">
-      <h1 className="text-4xl text-rose-500">About me</h1>
-      <p className="text-1xl">And EXO-Y4</p>
+      <SomeText
+        title="About me"
+        description="And EXO-Y4"
+      />
       <section className="w-full max-w-4xl p-4">
         <h2 className = "text-rose-500">ALTR-SNT | Y.4.N </h2>
         <p className="w-100">

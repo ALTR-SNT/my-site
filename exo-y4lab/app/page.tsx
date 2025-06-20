@@ -1,10 +1,12 @@
 import Link from "next/link"
+import SomeText from "./components/SomeText";
 export default function Home() {
   return (
 <>
     <main className="flex flex-col items-center justify-center min-h-screen gap-3">
-        <h1 className="text-4xl text-rose-500">Welcome to EXO-Y4</h1>
-        <p className="text-1xl">Unlock the Future of Code with Limitless Creativity.</p>
+        <SomeText 
+        title="Welcome to EXO-Y4" 
+        description="Unlock the Future of Code with Limitless Creativity." />
         <Link
           href="/services"
           className="bg-rose-600 text-white w-32 h-12 rounded-md mt-4

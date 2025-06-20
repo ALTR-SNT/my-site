@@ -1,11 +1,28 @@
+import SomeText from "../components/SomeText"
+import { getPosts } from "@/lib/posts";
+import Link from "next/link";
 
-
-export default function Blog() {
+export default async function Blog() {
+  const posts = await getPosts();
   return (
-   <>
-    <main className="flex flex-col items-center justify-center min-h-screen gap-3">
-      <h1 className="text-4xl text-rose-500">Coming Soon </h1>
-
+    <>
+      <main className="flex flex-col items-center min-h-screen gap-3">
+        <SomeText
+          title="EXO-Y4 Blog"
+          description="Welcome to the EXO-Y4 blog! Here you will find the latest updates and articles."
+        />
+        <section className="flex  w-100 h-100 ">
+       <div className="">
+         {posts.map((post) => (
+           <div key={post.slug} className="p-4 border-b">
+             <h2 className="text-xl font-bold">
+               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+             </h2>
+           </div>
+         ))}
+       </div>
+       
+      </section>
     </main>
     </>
   )
