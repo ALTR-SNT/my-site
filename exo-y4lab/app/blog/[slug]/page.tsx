@@ -1,15 +1,13 @@
 import { getPost } from "@/lib/posts";
 
-type Props = { params: { slug: string } };
 
 export async function generateStaticParams() {
   const posts = await import("@/lib/posts").then((m) => m.getPosts());
   return posts.map((post) => ({ slug: post.slug }));
 }
 
-export default async function PostPage({ params }: Props) {
+export default async function PostPage({ params }: { params: { slug: string } }) {
   const post = await getPost(params.slug);
-
   return (
     <article className="prose mx-auto p-4">
       <h1>{post.title}</h1>
