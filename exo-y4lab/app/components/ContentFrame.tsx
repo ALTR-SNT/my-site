@@ -7,12 +7,12 @@ interface ContentFrameProps {
 
 export default function ContentFrame({ projUrl, projName, gitHubUrl }: ContentFrameProps) {
   return (
-    <div className="flex flex-col items-center h-100 w-100">
+    <div className="flex flex-col items-center">
 
       <h3 className="text-2xl font-bold mb-2">{projName}</h3>
-      
-      <iframe 
-      scrolling = "no"
+
+      <iframe
+      scrolling="no"
       className={`h-70 w-70 rounded-xl shadow-lg border-0.5  transition-all duration-300 hover:shadow-2xl`} 
       src={projUrl}>
       </iframe>

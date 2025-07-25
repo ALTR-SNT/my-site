@@ -3,7 +3,7 @@ import SomeText from "./components/SomeText";
 export default function Home() {
   return (
 <>
-    <main className="flex flex-col items-center justify-center min-h-screen gap-3">
+    <main className="flex flex-col items-center justify-center  gap-4">
         <SomeText 
         title="Welcome to EXO-Y4" 
         description="Created by Y.4.N." />

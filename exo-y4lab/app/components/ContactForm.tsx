@@ -10,7 +10,7 @@ export default function ContactForm() {
       return <p>Thanks!</p>;
   }
   return (
-    <form className = "flex flex-col h-100 w-100 items-center gap-4 border-1 border-pink-400 rounded-lg shadow-2xl shadow-rose-500/50" onSubmit={handleSubmit}>
+    <form className = "flex flex-col h-100 w-70 items-center gap-4 border-1 border-pink-400 rounded-lg shadow-2xl shadow-rose-500/50" onSubmit={handleSubmit}>
           <h2 className="text-2xl text-rose-500">Form</h2>
       <label htmlFor="email">
         Email Address:

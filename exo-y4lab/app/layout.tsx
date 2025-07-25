@@ -29,9 +29,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden min-h-screen`}>
          <NavBar />
-        <main>{children}</main>
+        <main className="flex flex-col items-center justify-center min-h-screen gap-4">{children}</main>
         <Footer />
         <Analytics />
       </body>

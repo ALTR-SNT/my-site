@@ -8,9 +8,7 @@ export default function Projects() {
       title="EXO-Y4 LAB"
       description="Explore my projects."
     />
-    <section className="w-full max-w-4xl p-4">
-      <h2>Live Projects</h2>
-      <div className="grid grid-cols-3 gap-4">
+    <section className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
          <ContentFrame
         projName="EuroPath"
         projUrl="https://altr-snt.netlify.app/"
@@ -22,8 +20,6 @@ export default function Projects() {
         projUrl="https://altr-snt-1.netlify.app/"
         gitHubUrl="https://github.com/ALTR-SNT/Weather-App"
       />
-       
-      </div>
     </section>
     </main>
     </>
