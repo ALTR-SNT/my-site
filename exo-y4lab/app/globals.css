@@ -8,3 +8,6 @@ body{
     background-color: rgb(0, 0, 0);
     color: white;
 }
+h1{
+    text-shadow: 0px 3px 5px #d32323, 10px 8px 16px #df0e0e;
+}

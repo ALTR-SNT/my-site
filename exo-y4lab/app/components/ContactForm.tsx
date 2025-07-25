@@ -10,15 +10,16 @@ export default function ContactForm() {
       return <p>Thanks!</p>;
   }
   return (
-    <form className = "flex flex-col h-100 w-100 items-center gap-4 border-4 border-pink-400 rounded-lg" onSubmit={handleSubmit}>
+    <form className = "flex flex-col h-100 w-100 items-center gap-4 border-1 border-pink-400 rounded-lg shadow-2xl shadow-rose-500/50" onSubmit={handleSubmit}>
           <h2 className="text-2xl text-rose-500">Form</h2>
       <label htmlFor="email">
-        Email Address
+        Email Address:
       </label>
-      <input className="border-2 border-pink-300 rounded-md p-2"
+      <input className="border-0.5 h-15 border-pink-300 rounded-md p-2"
         id="email"
         type="email" 
         name="email"
+        placeholder="Enter your email"
       />
       <ValidationError 
         prefix="Email" 
@@ -26,11 +27,12 @@ export default function ContactForm() {
         errors={state.errors}
       />
       <label htmlFor="email">
-        Message
+        Message:
       </label>
-      <textarea className="border-2 border-pink-300 rounded-md p-2"
+      <textarea className="border-0.5 h-15 border-pink-300 rounded-md p-2"
         id="message"
         name="message"
+        placeholder="Enter your message"
       />
       <ValidationError 
         prefix="Message" 
@@ -38,7 +40,7 @@ export default function ContactForm() {
         errors={state.errors}
       />
  <div className="flex flex-row items-center gap-2">  
-      <button className = "bg-pink-500 h-10 w-30 text-white rounded-md p-2 hover:bg-pink-600" type="submit" disabled={state.submitting}>
+      <button className = "bg-pink-900 h-10 w-30 text-white rounded-md p-2 hover:bg-pink-500" type="submit" disabled={state.submitting}>
         Submit
       </button> 
     <Link href="https://t.me/EXO_Y4Bot" target="_blank" rel="noopener noreferrer">

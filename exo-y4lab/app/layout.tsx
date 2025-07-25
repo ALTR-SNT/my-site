@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
@@ -16,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "EXO-Y4",
-  keywords: ["EXO-Y4", "EXO-Y4LAB", "Next.js", "React", "Web Development"],
+  keywords: ["EXO-Y4", "EXO-Y4LAB", "Web Development"],
   description: "My personal website built with Next.js and React.",
 };
 
@@ -32,6 +33,7 @@ export default function RootLayout({
          <NavBar />
         <main>{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

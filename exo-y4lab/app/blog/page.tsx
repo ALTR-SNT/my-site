@@ -9,7 +9,7 @@ export default async function Blog() {
       <main className="flex flex-col items-center min-h-screen gap-3">
         <SomeText
           title="EXO-Y4 Blog"
-          description="Welcome to the EXO-Y4 blog! Here you will find the latest updates and articles."
+          description="Here you will find the latest updates and articles."
         />
         <section className="flex  w-100 h-100 ">
        <div className="">
@@ -21,7 +21,6 @@ export default async function Blog() {
            </div>
          ))}
        </div>
-       
       </section>
     </main>
     </>

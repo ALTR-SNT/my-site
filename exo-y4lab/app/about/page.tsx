@@ -33,8 +33,8 @@ export default function About() {
        <aside className="w-full max-w-4xl p-4 flex justify-end">
          <Image
       src="/something.jpg"
-      width={400}
-      height={400}
+      width={200}
+      height={200}
       alt="Picture of the author"
     />
       </aside>
