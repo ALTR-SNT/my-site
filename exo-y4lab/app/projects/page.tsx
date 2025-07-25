@@ -11,14 +11,14 @@ export default function Projects() {
     <section className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
          <ContentFrame
         projName="EuroPath"
-        projUrl="https://altr-snt.netlify.app/"
-        gitHubUrl="https://github.com/ALTR-SNT/Tour-Agent"
+        projUrl="https://europath.netlify.app"
+        gitHubUrl="https://github.com/ALTR-SNT/EuroPath"
         /> 
 
         <ContentFrame
         projName="TintWave"
-        projUrl="https://altr-snt-1.netlify.app/"
-        gitHubUrl="https://github.com/ALTR-SNT/Weather-App"
+        projUrl="https://tintwave.netlify.app"
+        gitHubUrl="https://github.com/ALTR-SNT/TintWave"
       />
     </section>
     </main>
