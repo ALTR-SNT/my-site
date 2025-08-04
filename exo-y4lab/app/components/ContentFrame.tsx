@@ -25,8 +25,8 @@ export default function ContentFrame({ projUrl, projName, gitHubUrl }: ContentFr
       className="bg-gray-700 text-white w-25 h-10 rounded-md mt-4
                 flex items-center justify-center
                 transition-all duration-300 ease-in-out
-              hover:bg-purple-400 hover:shadow-xl hover:shadow-purple-700/60
-              active:bg-purple-400 active:shadow-xl active:shadow-purple-700/60"
+              hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-700/60
+              active:bg-orange-400 active:shadow-xl active:shadow-orange-700/60"
         href={projUrl} 
         target="_blank" 
         rel="noopener noreferrer">Site</a>

@@ -5,9 +5,10 @@
     box-sizing: border-box;
 }
 body{
-    background-color: rgb(0, 0, 0);
+    background-color: #13081f;
     color: white;
+    max-height: 100vh; 
 }
 h1{
-    text-shadow: 0px 3px 5px #d32323, 10px 8px 16px #df0e0e;
+    text-shadow: 0px 2px 3px #ff5100, 6px 4px 9px #ca3605;
 }
