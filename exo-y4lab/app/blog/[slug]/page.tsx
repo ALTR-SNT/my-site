@@ -61,15 +61,15 @@ export default async function BlogPostPage({ params }: Props) {
         <Image
           src={post.mainImage.asset.url}
           alt={post.title}
-          width={800}
-          height={400}
-          className="mb-4"
+          width={400}
+          height={200}
+          className="mb-4 rounded-2xl"
           priority
         />
       )}
       <h1 className="text-3xl">{post.title}</h1>
-      {post.author && <p>By {post.author.name}</p>}
-      <p className="text-sm text-gray-500">
+      {post.author && <p className='text-amber-400'>By {post.author.name}</p>}
+      <p className="text-sm text-gray-300">
         {new Date(post.publishedAt).toLocaleDateString()}
       </p>
       <PortableText value={post.body} />
