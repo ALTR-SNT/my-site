@@ -5,31 +5,34 @@ import Image from 'next/image';
 import { getPostBySlug } from '@/sanity/lib/client';
 import type { Post } from '@/types';
 
-// Додано для форматування дати
+// Add the correct type for the page component props
+interface PageProps {
+  params: { slug: string };
+}
+
 const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
 });
 
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
-  const post: Post | null = await getPostBySlug(slug);
+// Use the new PageProps interface here
+export default async function PostPage({ params }: PageProps) {
+  const { slug } = params;
+  const post: Post | null = await getPostBySlug(slug);
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) {
+    notFound();
+  }
 
-  const formattedDate = post._createdAt ? dateFormatter.format(new Date(post._createdAt)) : null;
+  const formattedDate = post._createdAt ? dateFormatter.format(new Date(post._createdAt)) : null;
 
-  // 💡 Логіка для видалення повторюваного заголовка
-  const bodyWithoutDuplicateTitle = post.body.filter((block, index) => {
-    // Перевіряємо, чи це перший блок і чи його текст відповідає заголовку
-    if (index === 0 && block._type === 'block' && block.children?.[0]?.text?.trim() === post.title?.trim()) {
-      return false; // Якщо так, не включаємо цей блок
-    }
-    return true; // Включаємо всі інші блоки
-  });
+  const bodyWithoutDuplicateTitle = post.body.filter((block, index) => {
+    if (index === 0 && block._type === 'block' && block.children?.[0]?.text?.trim() === post.title?.trim()) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <main className="mx-auto my-6 px-4 max-w-4xl rounded-3xl shadow-xl">
