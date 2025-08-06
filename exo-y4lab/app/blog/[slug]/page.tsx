@@ -4,10 +4,10 @@ import Image from 'next/image';
 import { getPostBySlug } from '@/sanity/lib/client';
 import type { Post } from '@/types';
 
-// Визначте PageProps самостійно, оскільки Next.js більше не експортує її напряму
-interface PageProps {
-  params: { slug: string };
-}
+// Видаляємо всі власні чи конфліктуючі визначення PageProps
+// interface PageProps {
+//   params: { slug: string };
+// }
 
 const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   year: 'numeric',
@@ -15,8 +15,8 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   day: 'numeric',
 });
 
-// Використовуйте ваш власний інтерфейс PageProps
-export default async function PostPage({ params }: PageProps) {
+// 💡 Змінено: тип пропсів визначений напряму в сигнатурі функції
+export default async function PostPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const post: Post | null = await getPostBySlug(slug);
 
