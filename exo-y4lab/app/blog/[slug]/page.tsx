@@ -12,13 +12,13 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   day: 'numeric',
 });
 
-// Генеруємо шляхи для SSG
+// ✅ ВАЖЛИВО: не використовуй жодних сторонніх типів тут
 export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs(); // повертає: [{ slug: string }]
+  const slugs = await getAllPostSlugs(); // [{ slug: string }]
   return slugs.map(({ slug }) => ({ slug }));
 }
 
-// Головний компонент сторінки поста
+// ✅ НЕ використовуй PageProps або тип із .next/types/*
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const post: Post | null = await getPostBySlug(params.slug);
 
@@ -30,7 +30,6 @@ export default async function PostPage({ params }: { params: { slug: string } })
     ? dateFormatter.format(new Date(post._createdAt))
     : null;
 
-  // Фільтруємо дубль заголовка
   const body: PortableTextBlock[] = Array.isArray(post.body) ? post.body : [];
 
   const bodyWithoutDuplicateTitle = body.filter((block, index) => {
