@@ -21,8 +21,9 @@ interface BlogPost {
 
 
 type Props = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
+
 
 const query = groq`
   *[_type == "post" && slug.current == $slug][0]{
@@ -48,7 +49,7 @@ export async function generateStaticParams(): Promise<Props["params"][]> {
 }
 
 export default async function BlogPostPage({ params }: Props) {
-  const slug = (await params).slug;
+  const { slug } = await params;
 
   const post: BlogPost | null = await client.fetch(query, { slug });
 
