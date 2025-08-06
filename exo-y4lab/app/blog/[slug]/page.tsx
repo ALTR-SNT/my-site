@@ -12,19 +12,14 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   day: 'numeric',
 });
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-// Генерація статичних шляхів для всіх постів
+// Генеруємо шляхи для SSG
 export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs();
+  const slugs = await getAllPostSlugs(); // повертає: [{ slug: string }]
   return slugs.map(({ slug }) => ({ slug }));
 }
 
-export default async function PostPage({ params }: PageProps) {
+// Головний компонент сторінки поста
+export default async function PostPage({ params }: { params: { slug: string } }) {
   const post: Post | null = await getPostBySlug(params.slug);
 
   if (!post) {
@@ -35,6 +30,7 @@ export default async function PostPage({ params }: PageProps) {
     ? dateFormatter.format(new Date(post._createdAt))
     : null;
 
+  // Фільтруємо дубль заголовка
   const body: PortableTextBlock[] = Array.isArray(post.body) ? post.body : [];
 
   const bodyWithoutDuplicateTitle = body.filter((block, index) => {
