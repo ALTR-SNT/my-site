@@ -1,13 +1,8 @@
-import { notFound } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import { getPostBySlug } from '@/sanity/lib/client';
 import type { Post } from '@/types';
-
-// Видаляємо всі власні чи конфліктуючі визначення PageProps
-// interface PageProps {
-//   params: { slug: string };
-// }
+import type { InferGetServerSidePropsType } from 'next';
 
 const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   year: 'numeric',
@@ -15,18 +10,24 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   day: 'numeric',
 });
 
-// 💡 Змінено: тип пропсів визначений напряму в сигнатурі функції
-export default async function PostPage({ params }: { params: { slug: string } }) {
-  const { slug } = params;
+// Використовуємо InferGetServerSidePropsType для автоматичного визначення типу пропсів
+type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
+
+export async function getServerSideProps(context: any) {
+  const { slug } = context.params;
   const post: Post | null = await getPostBySlug(slug);
 
   if (!post) {
-    notFound();
+    return { notFound: true };
   }
 
+  return { props: { post } };
+}
+
+export default function PostPage({ post }: PageProps) {
   const formattedDate = post._createdAt ? dateFormatter.format(new Date(post._createdAt)) : null;
 
-  const bodyWithoutDuplicateTitle = post.body.filter((block, index) => {
+  const bodyWithoutDuplicateTitle = post.body.filter((block: any, index: number) => {
     if (index === 0 && block._type === 'block' && block.children?.[0]?.text?.trim() === post.title?.trim()) {
       return false;
     }
