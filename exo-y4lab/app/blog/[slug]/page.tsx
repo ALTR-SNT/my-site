@@ -1,5 +1,3 @@
-// app/blog/[slug]/page.tsx
-
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { PortableText, type PortableTextBlock } from '@portabletext/react';
@@ -12,19 +10,15 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   day: 'numeric',
 });
 
-// ✅ ВАЖЛИВО: не використовуй жодних сторонніх типів тут
-export async function generateStaticParams() {
-  const slugs = await getAllPostSlugs(); // [{ slug: string }]
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const slugs = await getAllPostSlugs();
   return slugs.map(({ slug }) => ({ slug }));
 }
 
-// ✅ НЕ використовуй PageProps або тип із .next/types/*
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const post: Post | null = await getPostBySlug(params.slug);
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   const formattedDate = post._createdAt
     ? dateFormatter.format(new Date(post._createdAt))
