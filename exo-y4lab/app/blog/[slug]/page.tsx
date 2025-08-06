@@ -3,7 +3,6 @@ import { client } from '@/sanity/lib/client';
 import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
-
 import type { TypedObject } from '@portabletext/types';
 
 interface BlogPost {
@@ -19,18 +18,30 @@ interface BlogPost {
   };
 }
 
+// Тип для props
+interface BlogPostPageProps {
+  params: {
+    slug: string;
+  };
+}
+
 const query = groq`
   *[_type == "post" && slug.current == $slug][0]{
     title,
     body,
     publishedAt,
+    mainImage{
+      asset->{
+        url
+      }
+    },
     author->{
       name
     }
   }
 `;
 
-export default async function BlogPostPage({ params }: { params: { slug: string } }) {
+export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const post: BlogPost = await client.fetch(query, { slug: params.slug });
 
   if (!post) {
@@ -38,20 +49,26 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   }
 
   return (
-    <article>
-      {post.mainImage && (
+    <article className="prose prose-invert mx-auto">
+      {post.mainImage?.url && (
         <Image
           src={post.mainImage.url}
           alt={post.title}
-          className="w-full h-auto mb-4"
+          className="w-full h-auto mb-4 rounded-xl"
           width={800}
           height={400}
           priority
         />
       )}
-      <h1 className='text-3xl'>{post.title}</h1>
-      {post.author && <p>By {post.author.name}</p>}
-      <p className="text-sm text-gray-500">{new Date(post.publishedAt).toLocaleDateString()}</p>
+      <h1 className="text-3xl font-bold">{post.title}</h1>
+      {post.author && <p className="text-gray-400">By {post.author.name}</p>}
+      <p className="text-sm text-gray-500">
+        {new Date(post.publishedAt).toLocaleDateString('uk-UA', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric',
+        })}
+      </p>
       <PortableText value={post.body} />
     </article>
   );
