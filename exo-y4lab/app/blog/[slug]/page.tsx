@@ -1,38 +1,38 @@
-// app/blog/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import { getPostBySlug } from '@/sanity/lib/client';
 import type { Post } from '@/types';
 
-// Add the correct type for the page component props
-interface PageProps {
-  params: { slug: string };
-}
+// Цей interface видалено, щоб уникнути конфлікту з вбудованими типами Next.js
+// interface PageProps {
+//   params: { slug: string };
+// }
 
 const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
 });
 
-// Use the new PageProps interface here
-export default async function PostPage({ params }: PageProps) {
-  const { slug } = params;
-  const post: Post | null = await getPostBySlug(slug);
+// 💡 Змінено: тип пропсів тепер визначається напряму в сигнатурі компонента.
+// Це дозволяє Next.js автоматично перевіряти сумісність типів.
+export default async function PostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const post: Post | null = await getPostBySlug(slug);
 
-  if (!post) {
-    notFound();
-  }
+  if (!post) {
+    notFound();
+  }
 
-  const formattedDate = post._createdAt ? dateFormatter.format(new Date(post._createdAt)) : null;
+  const formattedDate = post._createdAt ? dateFormatter.format(new Date(post._createdAt)) : null;
 
-  const bodyWithoutDuplicateTitle = post.body.filter((block, index) => {
-    if (index === 0 && block._type === 'block' && block.children?.[0]?.text?.trim() === post.title?.trim()) {
-      return false;
-    }
-    return true;
-  });
+  const bodyWithoutDuplicateTitle = post.body.filter((block, index) => {
+    if (index === 0 && block._type === 'block' && block.children?.[0]?.text?.trim() === post.title?.trim()) {
+      return false;
+    }
+    return true;
+  });
 
   return (
     <main className="mx-auto my-6 px-4 max-w-4xl rounded-3xl shadow-xl">
@@ -52,8 +52,8 @@ export default async function PostPage({ params }: PageProps) {
             <Image
               src={post.mainImage.url}
               alt={post.title || 'Зображення поста'}
-              width={200}
-              height={100}
+              width={1200} // Змінено для кращого співвідношення сторін
+              height={675} // Змінено для кращого співвідношення сторін
               className="object-cover rounded-xl"
             />
           </div>
