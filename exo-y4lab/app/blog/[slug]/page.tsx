@@ -1,8 +1,14 @@
+// app/blog/[slug]/page.tsx
+import { notFound } from 'next/navigation';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import { getPostBySlug } from '@/sanity/lib/client';
 import type { Post } from '@/types';
-import type { InferGetServerSidePropsType } from 'next';
+
+// Видаляємо всі згадки про getServerSideProps та пов'язані з ним типи.
+// Next.js App Router не підтримує цю функцію.
+// import type { InferGetServerSidePropsType } from 'next';
+// type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
 
 const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   year: 'numeric',
@@ -10,29 +16,25 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
   day: 'numeric',
 });
 
-// Використовуємо InferGetServerSidePropsType для автоматичного визначення типу пропсів
-type PageProps = InferGetServerSidePropsType<typeof getServerSideProps>;
-
-export async function getServerSideProps(context: any) {
-  const { slug } = context.params;
+// 💡 Змінено: тип пропсів визначений безпосередньо в сигнатурі функції.
+// Компонент залишається асинхронним, щоб отримувати дані.
+export default async function PostPage({ params }: { params: { slug: string } }) {
+  const { slug } = params;
   const post: Post | null = await getPostBySlug(slug);
 
   if (!post) {
-    return { notFound: true };
+    notFound();
   }
 
-  return { props: { post } };
-}
-
-export default function PostPage({ post }: PageProps) {
   const formattedDate = post._createdAt ? dateFormatter.format(new Date(post._createdAt)) : null;
 
-  const bodyWithoutDuplicateTitle = post.body.filter((block: any, index: number) => {
+  // Виправлення для PortableText, щоб уникнути помилок типу
+  const bodyWithoutDuplicateTitle = post.body?.filter((block: any, index: number) => {
     if (index === 0 && block._type === 'block' && block.children?.[0]?.text?.trim() === post.title?.trim()) {
       return false;
     }
     return true;
-  });
+  }) || []; // Додано || [], щоб уникнути помилок, якщо post.body відсутній
 
   return (
     <main className="mx-auto my-6 px-4 max-w-4xl rounded-3xl shadow-xl">
@@ -66,3 +68,5 @@ export default function PostPage({ post }: PageProps) {
     </main>
   );
 }
+
+// Функція getServerSideProps повністю видалена, оскільки вона не підтримується
