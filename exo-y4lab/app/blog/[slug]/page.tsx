@@ -1,3 +1,4 @@
+// app/blog/[slug]/page.tsx
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { PortableText, type PortableTextBlock } from '@portabletext/react';
