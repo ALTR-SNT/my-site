@@ -1,28 +1,46 @@
-import { createClient } from 'next-sanity'
+// sanity/lib/client.ts
+import { createClient } from 'next-sanity';
 import type { Post } from '@/types';
-import { apiVersion, dataset, projectId } from '../env'
+import { apiVersion, dataset, projectId } from '../env';
 
 export const client = createClient({
   projectId,
   dataset,
   apiVersion,
-  useCdn: true, // Set to false if statically generating pages, using ISR or tag-based revalidation
-})
+  useCdn: true, // true = швидше, але без live оновлень
+});
 
+// Отримати пост за slug
 export async function getPostBySlug(slug: string): Promise<Post | null> {
-  // Правильний GROQ-запит для отримання одного поста за його slug
-  const query = `*[_type == "post" && slug.current == $slug][0] {
+  const query = `*[_type == "post" && slug.current == $slug][0]{
     _id,
     _createdAt,
     title,
-    "slug": slug.current,
-    body,
+    slug,
     mainImage {
-      "url": asset->url
-    }
+      asset -> {
+        _id,
+        url
+      }
+    },
+    body
   }`;
 
-  const post = await client.fetch<Post>(query, { slug });
-  
-  return post;
+  const post = await client.fetch(query, { slug });
+
+  // Приводимо зображення до простішої структури
+  if (post?.mainImage?.asset?.url) {
+    post.mainImage = { url: post.mainImage.asset.url };
+  }
+
+  return post || null;
+}
+
+// Отримати всі slug-и
+export async function getAllPostSlugs() {
+  const slugs: string[] = await client.fetch(
+    `*[_type == "post" && defined(slug.current)][].slug.current`
+  );
+
+  return slugs.map((slug) => ({ slug }));
 }
