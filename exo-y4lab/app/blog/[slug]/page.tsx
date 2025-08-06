@@ -11,36 +11,34 @@ const dateFormatter = new Intl.DateTimeFormat('uk-UA', {
 
 export async function generateStaticParams() {
   const slugs = await getAllPostSlugs();
-  return slugs.map(({ slug }) => ({ slug }));
+  return slugs.map((slug) => ({
+    slug: slug.slug,
+  }));
 }
-
 export default async function PostPage({ params }: { params: { slug: string } }) {
   const post = await getPostBySlug(params.slug);
-
   if (!post) {
-    notFound();
+    return notFound();
+  }
+  const formattedDate =
+    post.publishedAt && (typeof post.publishedAt === 'string' || typeof post.publishedAt === 'number' || post.publishedAt instanceof Date)
+      ? dateFormatter.format(new Date(post.publishedAt))
+      : null;
+  const bodyWithoutDuplicateTitle = post.body.filter(
+    (block) => !(block._type === 'block' && block.children.some((child
+) => child.text === post.title))
+  );
+
+  if (!post.mainImage?.url) {
+    return notFound();
+  }
+  if (!post.title) {
+    return notFound();
+  }
+  if (!bodyWithoutDuplicateTitle.length) {
+    return notFound();
   }
 
-  const formattedDate = post._createdAt
-    ? dateFormatter.format(new Date(post._createdAt))
-    : null;
-
-  const body = Array.isArray(post.body) ? post.body : [];
-
-  // Відфільтруємо перший блок, якщо він дублює заголовок
-  const bodyWithoutDuplicateTitle = body.filter((block, index) => {
-    if (
-      index === 0 &&
-      block._type === 'block' &&
-      Array.isArray(block.children) &&
-      typeof post.title === 'string' &&
-      typeof block.children[0]?.text === 'string' &&
-      block.children[0].text.trim() === post.title.trim()
-    ) {
-      return false;
-    }
-    return true;
-  });
 
   return (
     <main className="mx-auto my-6 px-4 max-w-4xl rounded-3xl shadow-xl">

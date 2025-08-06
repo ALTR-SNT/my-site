@@ -3,6 +3,7 @@ import type { PortableTextBlock } from '@portabletext/react';
 import { StaticImport } from 'next/dist/shared/lib/get-img-props';
 
 export type Post = {
+  [x: string]: unknown;
   _id: string;
   _createdAt: string;
   title: string;
