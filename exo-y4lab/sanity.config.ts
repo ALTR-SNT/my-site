@@ -25,4 +25,13 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  webhooks: [
+    {
+      name: 'Update Blog',
+      url: 'https://api.vercel.com/v1/integrations/deploy/prj_jYbHXE4uyWrJxlQSDJZB2qLXAu2N/A1paRyHTPJ',
+      trigger: 'create update delete',
+      filter: '_type == "post"', 
+      httpMethod: 'POST'
+    }
+  ]
 })
