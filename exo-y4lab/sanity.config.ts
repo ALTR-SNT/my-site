@@ -27,7 +27,7 @@ export default defineConfig({
   ],
   webhooks: [
     {
-      name: 'Update Blog',
+      name: 'Blog-hook',
       url: 'https://api.vercel.com/v1/integrations/deploy/prj_jYbHXE4uyWrJxlQSDJZB2qLXAu2N/A1paRyHTPJ',
       trigger: 'create update delete',
       filter: '_type == "post"', 
