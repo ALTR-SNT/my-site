@@ -4,7 +4,7 @@ import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { PortableTextBlock } from '@portabletext/types';
-
+import { urlFor } from '../../../sanity/lib/image'
 interface BlogPost {
   mainImage?: {
     asset?: {
@@ -58,13 +58,13 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <article>
       {post.mainImage?.asset?.url && (
-        <Image
-          src={post.mainImage.asset.url}
-          alt={post.title}
-          width={400}
-          height={200}
-          className="mb-4 rounded-2xl"
-          priority
+       <Image
+      src={urlFor(post.mainImage).width(400).height(200).crop('center').url()}
+      alt={post.title}
+      width={400}
+      height={200}
+      className="mb-4 rounded-2xl"
+      priority
         />
       )}
       <h1 className="text-3xl">{post.title}</h1>
