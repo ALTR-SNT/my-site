@@ -14,7 +14,7 @@ export default function NavBar() {
 
 
             <div className='flex items-center text-amber-500 z-10'> 
-                <h1 className='text-2xl'>EXO-Y4</h1>
+                <h1 className='text-2xl'>EXO-Y4 <span className='text-xs'>v.2</span></h1>
             </div>
 
            
