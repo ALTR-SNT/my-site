@@ -52,12 +52,12 @@ export default async function Blog() {
 
   return (
     <>
-       <main className="flex flex-col items-center min-h-screen gap-3">
+       <section className="flex flex-col items-center gap-4">
         <SomeText
           title="EXO-Y4 Blog"
           description="Here you will find the latest updates and articles."
         />
-        <section className="flex flex-col items-center w-full max-w-7xl px-6 py-8">
+        <div className="flex flex-row items-center px-6 py-8">
           {posts.length === 0 ? (
             <div className="text-center py-12">
               <div className="mb-8">
@@ -83,13 +83,11 @@ export default async function Blog() {
               </p>
             </div>
           ) : (
-            // Змінено: Сітка тепер використовує 1 колонку на мобільних і 2 на великих екранах
-            <div className="articles w-full grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 lg:gap-12">
+            <div className="w-full grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-12">
               {posts.map((post) => (
-                <article 
+                <div 
                   key={post._id} 
-                  // Змінено: Видалив неіснуючі класи і додав адаптивні
-                  className="border rounded-lg overflow-hidden hover:shadow-lg transition-shadow bg-black transform hover:scale-105 duration-300 ease-in-out"
+                  className=" overflow-hidden hover:shadow-lg backface-visible transition-shadow transform hover:scale-105 duration-300 ease-in-out"
                 >
                   {post.mainImage && (
                     <div className="aspect-video relative">
@@ -97,7 +95,7 @@ export default async function Blog() {
                         src={urlFor(post.mainImage).width(900).height(500).url()}
                         alt={post.mainImage.alt || post.title}
                         fill
-                        className="object-cover"
+                        className="object-cover border rounded-xl"
                       />
                     </div>
                   )}
@@ -129,12 +127,12 @@ export default async function Blog() {
                       )}
                     </div>
                   </div>
-                </article>
+                </div>
               ))}
             </div>
           )}
-        </section>
-      </main>
+        </div>
+      </section>
     </>
   )
 }

@@ -54,8 +54,8 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) return notFound();
   
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
-      <article className="text-center">
+    <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12">
+      <div className="text-center">
         {post.mainImage?.asset?.url && (
           <div className="flex justify-center mb-4 sm:mb-6">
             <div className="w-full max-w-md sm:max-w-lg lg:max-w-xl">
@@ -78,7 +78,7 @@ export default async function BlogPostPage({ params }: Props) {
         <div className="text-left prose prose-invert prose-sm sm:prose-base lg:prose-lg max-w-none px-2 sm:px-0">
           <PortableText value={post.body} />
         </div>
-      </article>
-    </div>
+      </div>
+    </section>
   );
 }

@@ -3,7 +3,7 @@ import SomeText from "./components/SomeText";
 export default function Home() {
   return (
 <>
-    <main className="flex flex-col items-center justify-center  gap-4">
+    <section className="flex flex-col items-center gap-4">
         <SomeText 
         title="Welcome to EXO-Y4" 
         description="Created by Y.4.N." />
@@ -15,7 +15,7 @@ export default function Home() {
            hover:bg-amber-500 hover:shadow-xl hover:shadow-amber-700/60"> 
           Get started
         </Link>
-    </main>
+    </section>
 </>
   )
 }

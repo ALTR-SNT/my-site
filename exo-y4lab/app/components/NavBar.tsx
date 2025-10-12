@@ -52,7 +52,7 @@ export default function NavBar() {
                 items-center justify-center md:justify-end 
                 gap-8 md:gap-6 
                 text-2xl md:text-lg 
-                z-0 md:z-auto
+                z-1 md:z-auto
             `}>
                 <ul className='flex flex-col md:flex-row gap-8 md:gap-6'> 
                     <li><Link href="/" onClick={closeMenu} className='hover:text-rose-500'>Home</Link></li>

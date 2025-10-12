@@ -3,12 +3,12 @@ import ContentFrame from "../components/ContentFrame"
 export default function Projects() {
   return (
     <>
-    <main className="flex flex-col items-center min-h-screen gap-3">
+    <section className="flex flex-col items-center gap-3">
     <SomeText
       title="EXO-Y4 LAB"
       description="Explore my projects."
     />
-    <section className="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+    <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
          <ContentFrame
         projName="EuroPath"
         projUrl="https://europath.netlify.app"
@@ -20,8 +20,8 @@ export default function Projects() {
         projUrl="https://tintwave.netlify.app"
         gitHubUrl="https://github.com/ALTR-SNT/TintWave"
       />
+    </div>
     </section>
-    </main>
     </>
   )
 }
