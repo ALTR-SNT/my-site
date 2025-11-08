@@ -19,7 +19,13 @@ export default function Projects() {
         projName="TintWave"
         projUrl="https://tintwave.netlify.app"
         gitHubUrl="https://github.com/ALTR-SNT/TintWave"
-      />
+        />
+
+        <ContentFrame
+        projName="WizAllet"
+        projUrl="https://wizallet.netlify.app"
+        gitHubUrl="https://github.com/ALTR-SNT/WizAllet"
+        />
     </div>
     </section>
     </>
