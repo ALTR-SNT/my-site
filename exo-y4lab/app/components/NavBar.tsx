@@ -14,14 +14,14 @@ export default function NavBar() {
 
 
             <div className='flex items-center text-black z-10'> 
-                <h1 className='text-2xl'>EXO-Y4 <span className='text-xs'>v.2</span></h1>
+                <h1 className='text-2xl'>EXO-Y4 <span className='text-xs'>v.3</span></h1>
             </div>
 
            
             <div className='md:hidden z-10'> 
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className='text-white focus:outline-none focus:ring-2 focus:ring-amber-500'
+                    className='text-black focus:outline-none focus:ring-2 focus:ring-fuchsia-500'
                     aria-label="Toggle menu"
                 >
                     <svg
@@ -47,7 +47,7 @@ export default function NavBar() {
                 md:static 
                 absolute top-0 left-0 w-full h-screen 
                 md:h-auto md:w-auto 
-                bg-gray-950 md:bg-transparent 
+                bg-white md:bg-transparent 
                 flex flex-col md:flex-row 
                 items-center justify-center md:justify-end 
                 gap-8 md:gap-6 
