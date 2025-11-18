@@ -5,12 +5,12 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #13081f;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.896);
+    color: black;
     max-height: 100vh; 
 }
 h1{
-    text-shadow: 0px 2px 3px #ff5100, 6px 4px 9px #ca3605;
+    text-shadow: 0px 2px 3px #a5006b, 4px 2px 4px #76025c98;
 }
 .line-clamp-3 {
   display: -webkit-box;

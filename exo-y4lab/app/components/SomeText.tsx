@@ -6,7 +6,7 @@ type SomeTextProps = {
 export default function SomeText({ title, description }: SomeTextProps) {
   return (
     <>
-      <h1 className="text-4xl text-amber-300 ">{title}</h1>
+      <h1 className="text-4xl text-black ">{title}</h1>
       {description && <p className="text-1xl text-white-600">{description}</p>}
     </>
   );

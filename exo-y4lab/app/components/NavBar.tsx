@@ -10,10 +10,10 @@ export default function NavBar() {
     };
 
     return (
-        <header className='flex items-center justify-around p-4 h-15 w-full bg-gray-750 text-white relative'>
+        <header className='flex items-center justify-around p-4 h-15 w-full bg-gray-750 text-black relative'>
 
 
-            <div className='flex items-center text-amber-500 z-10'> 
+            <div className='flex items-center text-black z-10'> 
                 <h1 className='text-2xl'>EXO-Y4 <span className='text-xs'>v.2</span></h1>
             </div>
 

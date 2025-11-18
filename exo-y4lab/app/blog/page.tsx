@@ -75,7 +75,7 @@ export default async function Blog() {
                   />
                 </svg>
               </div>
-              <h3 className="text-lg font-medium text-amber-500 mb-2">
+              <h3 className="text-lg font-medium text-fuchsia-500 mb-2">
                 Articles will be available here soon
               </h3>
               <p className="text-gray-300 max-w-md mx-auto">
