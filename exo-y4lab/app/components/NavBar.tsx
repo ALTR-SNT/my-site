@@ -10,18 +10,18 @@ export default function NavBar() {
     };
 
     return (
-        <header className='flex items-center justify-around p-4 h-15 w-full bg-gray-750 text-black relative'>
+        <header className='flex items-center justify-around p-4 h-15 w-full bg-gray-750  relative'>
 
 
-            <div className='flex items-center text-black z-10'> 
-                <h1 className='text-2xl'>EXO-Y4 <span className='text-xs'>v.3</span></h1>
+            <div className='flex items-center black z-10'> 
+                <h1 className='text-2xl'>Altr Snt</h1>
             </div>
 
            
             <div className='md:hidden z-10'> 
                 <button
                     onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    className='text-black focus:outline-none focus:ring-2 focus:ring-fuchsia-500'
+                    className='focus:outline-none focus:ring-2 focus:ring-fuchsia-500'
                     aria-label="Toggle menu"
                 >
                     <svg
@@ -55,11 +55,11 @@ export default function NavBar() {
                 z-1 md:z-auto
             `}>
                 <ul className='flex flex-col md:flex-row gap-8 md:gap-6'> 
-                    <li><Link href="/" onClick={closeMenu} className='hover:text-rose-500'>Home</Link></li>
-                    <li><Link href="/projects" onClick={closeMenu} className='hover:text-lime-500'>Projects</Link></li>
-                    <li><Link href="/blog" onClick={closeMenu} className='hover:text-blue-500'>Blog</Link></li>
-                    <li><Link href="/about" onClick={closeMenu} className='hover:text-yellow-500'>About</Link></li>
-                    <li><Link href="/contact" onClick={closeMenu} className='hover:text-pink-500'>Contact</Link></li>
+                    <li><Link href="/" onClick={closeMenu} className='hover:text-rose-300'>Home</Link></li>
+                    <li><Link href="/projects" onClick={closeMenu} className='hover:text-lime-300'>Projects</Link></li>
+                    <li><Link href="/blog" onClick={closeMenu} className='hover:text-blue-300'>Blog</Link></li>
+                    <li><Link href="/about" onClick={closeMenu} className='hover:text-yellow-300'>About</Link></li>
+                    <li><Link href="/contact" onClick={closeMenu} className='hover:text-pink-300'>Contact</Link></li>
                 </ul>
             </nav>
         </header>

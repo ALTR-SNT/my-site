@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "EXO-Y4",
-  keywords: ["EXO-Y4", "EXO-Y4LAB", "Web Development"],
+  keywords: ["EXO-Y4", "Altr Snt", "Web Development"],
   description: "My personal website built with Next.js and React.",
 };
 

@@ -1,20 +1,9 @@
-import Link from "next/link"
-import SomeText from "./components/SomeText";
 export default function Home() {
   return (
 <>
     <section className="flex flex-col items-center gap-4">
-        <SomeText 
-        title="Welcome to EXO-Y4" 
-        description="Created by Y.4.N." />
-        <Link
-          href="/projects"
-          className="bg-fuchsia-600 text-white w-32 h-12 rounded-md mt-4
-            flex items-center justify-center
-            transition-all duration-300 ease-in-out
-           hover:bg-fuchsia-500 hover:shadow-xl hover:shadow-fuchsia-700/60"> 
-          Get started
-        </Link>
+        <h1 className="text-6xl">Welcome to EXO-Y4</h1>
+        <p className="text-3xl">Created by Y.4.N.</p>
     </section>
 </>
   )

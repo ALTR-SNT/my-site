@@ -1,13 +1,9 @@
-import SomeText from "../components/SomeText"
 import ContentFrame from "../components/ContentFrame"
 export default function Projects() {
   return (
     <>
     <section className="flex flex-col items-center gap-3">
-    <SomeText
-      title="EXO-Y4 LAB"
-      description="Explore my projects."
-    />
+    <h2 className="text-5xl">Portfolio</h2>
     <div className="grid gap-10 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
          <ContentFrame
         projName="EuroPath"

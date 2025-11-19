@@ -1,10 +1,9 @@
-import SomeText from "../components/SomeText"
 import { urlFor } from "../../sanity/lib/image"
 import { client } from "../../sanity/lib/client"
 import Link from "next/link"
 import Image from "next/image"
 
-// Типи для постів
+
 interface Post {
   _id: string
   title: string
@@ -22,7 +21,7 @@ interface Post {
   }
 }
 
-// Функція для отримання постів з Sanity
+
 async function getPosts(): Promise<Post[]> {
   const query = `*[_type == "post" && publishedAt < now()] | order(publishedAt desc) {
     _id,
@@ -53,10 +52,8 @@ export default async function Blog() {
   return (
     <>
        <section className="flex flex-col items-center gap-4">
-        <SomeText
-          title="EXO-Y4 Blog"
-          description="Here you will find the latest updates and articles."
-        />
+        <h2 className="text-5xl">Blog</h2>
+        <p className="text-2xl">Latest articles and updates</p>
         <div className="flex flex-row items-center px-6 py-8">
           {posts.length === 0 ? (
             <div className="text-center py-12">
@@ -101,7 +98,7 @@ export default async function Blog() {
                   )}
                   
                   <div className="p-4">
-                    <h2 className="text-xl font-bold mb-2 hover:text-blue-600 transition-colors">
+                    <h2 className="text-xl font-bold mb-2 transition-colors">
                       <Link href={`/blog/${post.slug.current}`}>
                         {post.title}
                       </Link>
@@ -113,7 +110,7 @@ export default async function Blog() {
                       </p>
                     )}
                     
-                    <div className="flex justify-between items-center text-sm text-gray-500">
+                    <div className="flex justify-between items-center text-sm">
                       <time dateTime={post.publishedAt}>
                         {new Date(post.publishedAt).toLocaleDateString('uk-UA', {
                           year: 'numeric',
