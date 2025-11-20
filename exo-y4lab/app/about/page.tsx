@@ -10,8 +10,8 @@ export default function About() {
         <div className="w-full max-w-5xl px-4 flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8">
 
           <div className="w-full md:w-1/2 flex flex-col items-start md:items-start text-center md:text-left">
-            <h2 className="text-3xl mb-2">Y.4.N</h2>
-            <p className="text-xl"> 
+            <h3 className="text-2xl mb-2">Y.4.N</h3>
+            <p className="text-xl max-sm:text-xs max-w-prose"> 
   I am a student interested in full-stack development.<br/>
   I became interested in the web in early 2023,
  but I didn&apos;t realise that the web was deeper than I thought, despite this... 
@@ -28,8 +28,8 @@ export default function About() {
           <aside className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Image
               src="/about1.jpg"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               alt="Picture of the author"
               className="rounded-lg shadow-lg" 
             />
@@ -41,8 +41,8 @@ export default function About() {
         <aside className="w-full md:w-1/2 flex justify-center md:justify-start">
             <Image
               src="/about2.jpg"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               alt="Picture of the author"
               className="rounded-lg shadow-lg"
             />
@@ -50,7 +50,7 @@ export default function About() {
 
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
             <h2 className="text-2xl mb-2">EXO-Y4</h2>
-            <p className=" text-xl max-w-prose">
+            <p className=" text-xl max-sm:text-xs max-w-prose">
     EXO-Y4 is my personal website for my portfolio, blog, and experiments, as the platform itself is part of my portfolio. 
     The design of this website has its own unique feature, transitioning from minimalism to experimentation with gradients and neon. 
     However, the most important thing is the content posted here. 
@@ -64,7 +64,7 @@ export default function About() {
 
           <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
             <h2 className="text-2xl mb-2">My Skills</h2>
-              <ul className=" text-xl list-disc list-inside">
+              <ul className=" text-xl max-sm:text-xs list-disc list-inside">
                 <li>HTML</li>
                 <li>CSS && Tailwind</li>
                 <li>Javascript && Typescript</li>
@@ -79,8 +79,8 @@ export default function About() {
           <aside className="w-full md:w-1/2 flex justify-center md:justify-end">
             <Image
               src="/about3.jpg"
-              width={400}
-              height={400}
+              width={300}
+              height={300}
               alt="Picture of the author"
               className="rounded-lg shadow-lg" 
             />
