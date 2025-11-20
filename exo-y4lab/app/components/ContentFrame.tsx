@@ -7,37 +7,27 @@ interface ContentFrameProps {
 
 export default function ContentFrame({ projUrl, projName, gitHubUrl }: ContentFrameProps) {
   return (
-    <div className="flex flex-col items-center">
-
-      <h3 className="text-2xl font-bold mb-2">{projName}</h3>
-
-      <iframe
-      scrolling="no"
-      className={`h-70 w-70 rounded-xl shadow-lg border-0.5  transition-all duration-300 hover:shadow-2xl`} 
-      src={projUrl}>
-      </iframe>
-
-      <p >
-       Info:
-      </p>
-      <div className="flex flex-row items-center mt-4 justify-evenly w-full">
+    <div className="flex flex-col items-center h-30 w-70 p-6 rounded-lg shadow-lg">
+      <h3 className="text-3xl font-bold">{projName}</h3>
+      <p className="text-center mt-4">Details:</p>
+      <div className="flex flex-row m-8 items-end justify-evenly w-full gap-4">
         <a 
-      className="bg-gray-700 text-white w-25 h-10 rounded-md mt-4
+      className="bg-gray-700 text-white w-25 h-10 rounded-md 
                 flex items-center justify-center
                 transition-all duration-300 ease-in-out
-              hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-700/60
-              active:bg-orange-400 active:shadow-xl active:shadow-orange-700/60"
+              hover:bg-green-400 hover:shadow-xl hover:shadow-orange-700/60
+              active:bg-green-400 active:shadow-xl active:shadow-green-700/60"
         href={projUrl} 
         target="_blank" 
         rel="noopener noreferrer">Site</a>
       
       {gitHubUrl && (
             <a 
-           className="bg-gray-700 text-white w-25 h-10 rounded-md mt-4
+           className="bg-gray-700 text-white w-25 h-10 rounded-md
                 flex items-center justify-center
                 transition-all duration-300 ease-in-out
-              hover:bg-orange-400 hover:shadow-xl hover:shadow-orange-700/60
-              active:bg-orange-400 active:shadow-xl active:shadow-orange-700/60"
+              hover:bg-cyan-400 hover:shadow-xl hover:shadow-cyan-700/60
+              active:bg-cyan-400 active:shadow-xl active:shadow-cyan-700/60"
             href={gitHubUrl} 
             target="_blank" 
             rel="noopener noreferrer">GitHub</a>

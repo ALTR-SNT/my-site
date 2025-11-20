@@ -47,7 +47,7 @@ export default function NavBar() {
                 md:static 
                 absolute top-0 left-0 w-full h-screen 
                 md:h-auto md:w-auto 
-                bg-white md:bg-transparent 
+                bg-cyan-900 md:bg-transparent 
                 flex flex-col md:flex-row 
                 items-center justify-center md:justify-end 
                 gap-8 md:gap-6 

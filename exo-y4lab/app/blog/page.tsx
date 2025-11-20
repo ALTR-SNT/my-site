@@ -52,14 +52,14 @@ export default async function Blog() {
   return (
     <>
        <section className="flex flex-col items-center gap-4">
-        <h2 className="text-5xl">Blog</h2>
-        <p className="text-2xl">Latest articles and updates</p>
+        <h2 className="text-5xl max-sm:text-3xl">Blog</h2>
+        <p className="text-2xl max-sm:text-xl">Latest articles and updates</p>
         <div className="flex flex-row items-center px-6 py-8">
           {posts.length === 0 ? (
             <div className="text-center py-12">
               <div className="mb-8">
                 <svg 
-                  className="mx-auto h-24 w-24 text-gray-300" 
+                  className="mx-auto h-30 w-30 text-gray-300" 
                   fill="none" 
                   viewBox="0 0 24 24" 
                   stroke="currentColor"
@@ -80,11 +80,11 @@ export default async function Blog() {
               </p>
             </div>
           ) : (
-            <div className="w-full grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-12">
+            <div className="w-full grid gap-7 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-12">
               {posts.map((post) => (
                 <div 
                   key={post._id} 
-                  className=" overflow-hidden hover:shadow-lg backface-visible transition-shadow transform hover:scale-105 duration-300 ease-in-out"
+                  className=" overflow-hidden h-60 hover:shadow-lg backface-visible transition-shadow transform hover:scale-110 duration-300 ease-in-out"
                 >
                   {post.mainImage && (
                     <div className="aspect-video relative">

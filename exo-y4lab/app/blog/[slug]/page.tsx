@@ -62,7 +62,7 @@ export default async function BlogPostPage({ params }: Props) {
               <Image
                 src={urlFor(post.mainImage).width(600).height(300).crop('center').url()}
                 alt={post.title}
-                width={600}
+                width={500}
                 height={300}
                 className="rounded-2xl w-full h-auto"
                 priority
@@ -70,8 +70,8 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </div>
         )}
-        <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 px-2">{post.title}</h1>
-        {post.author && <p className='text-amber-400 mb-2 text-sm sm:text-base'>By {post.author.name}</p>}
+        <h2 className="text-3xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4 px-2">{post.title}</h2>
+        {post.author && <p className='text-cyan-400 mb-2 text-sm sm:text-base'>By {post.author.name}</p>}
         <p className="text-xs sm:text-sm text-gray-300 mb-6 sm:mb-8">
           {new Date(post.publishedAt).toLocaleDateString()}
         </p>
