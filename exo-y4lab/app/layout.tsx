@@ -27,7 +27,12 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} antialiased min-h-screen flex flex-col`}>
          <NavBar />
-        <main className="flex flex-col items-center flex-grow">{children}</main>
+        <main className="flex flex-col items-center flex-grow">
+          {children}
+          <section className="someFun">
+
+          </section>
+        </main>
         <Footer />
         <Analytics />
       </body>
