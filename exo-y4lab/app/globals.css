@@ -18,7 +18,7 @@ body{
     height: 300px;
     position: absolute;
     z-index: -1000;
-    background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%);  
+    background: linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(166, 7, 65) 91.1%);  
     filter: blur(5000px);
     animation: gradient 15s ease infinite;
     animation-delay: 5s;
