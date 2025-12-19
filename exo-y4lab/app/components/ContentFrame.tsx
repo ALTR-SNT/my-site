@@ -7,10 +7,9 @@ interface ContentFrameProps {
 
 export default function ContentFrame({ projUrl, projName, gitHubUrl }: ContentFrameProps) {
   return (
-    <div className="flex flex-col items-center h-30 w-70 p-6 rounded-lg shadow-lg">
+    <div className="flex flex-col items-center h-50 w-70 p-6 rounded-lg shadow-lg z-0 justify-evenly">
       <h3 className="text-3xl font-bold">{projName}</h3>
-      <p className="text-center mt-4">Details:</p>
-      <div className="flex flex-row m-8 items-end justify-evenly w-full gap-4">
+      <div className="flex flex-row m-8 items-baseline justify-evenly w-full gap-7">
         <a 
       className="bg-gray-700 text-white w-25 h-10 rounded-md 
                 flex items-center justify-center

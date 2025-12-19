@@ -12,8 +12,8 @@ const roboto = Roboto({
 
 
 export const metadata: Metadata = {
-  title: "EXO-Y4",
-  keywords: ["EXO-Y4", "Altr Snt", "Web Development"],
+  title: "Alternative Sanctum",
+  keywords: ["Alternative Sanctum", "Altr Snt", "EXO-Y4", "Web Development"],
   description: "My personal website built with Next.js and React.",
 };
 
@@ -25,16 +25,21 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${roboto.variable} antialiased min-h-screen flex flex-col`}>
+        className={`${roboto.variable} antialiased min-h-screen flex flex-col w-full bg-[#000000] relative`}>
+      <div
+          className="absolute inset-0 -z-9999"
+          style={{
+            background: "radial-gradient(125% 125% at 50% 100%, #000000 40%, #350136 100%)",
+          }}
+        />
          <NavBar />
         <main className="flex flex-col items-center flex-grow">
+          
           {children}
-          <section className="someFun">
-
-          </section>
         </main>
         <Footer />
         <Analytics />
+        
       </body>
     </html>
   );
