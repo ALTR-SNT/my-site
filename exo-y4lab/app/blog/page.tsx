@@ -51,8 +51,8 @@ export default async function Blog() {
 
   return (
     <>
-       <section className="flex flex-col items-center gap-4">
-        <h2 className="text-5xl max-sm:text-3xl">Blog</h2>
+       <section className="flex flex-col items-center gap-3 absolute top-24 w-full">
+        <h2 className="text-4xl max-sm:text-2xl">Blog</h2>
         <p className="text-2xl max-sm:text-xl">Latest articles and updates</p>
         <div className="flex flex-row items-center px-6 py-8">
           {posts.length === 0 ? (

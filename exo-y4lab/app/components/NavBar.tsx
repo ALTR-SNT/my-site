@@ -14,7 +14,7 @@ export default function NavBar() {
 
 
             <div className='flex items-center black z-10'> 
-                <h2 className='text-2xl'>Altr Snt</h2>
+                <h2 className='text-2xl'>Alter Saint</h2>
             </div>
 
            

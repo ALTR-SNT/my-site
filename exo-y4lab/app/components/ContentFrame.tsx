@@ -1,4 +1,4 @@
-
+import {LinkButton} from "./ui/LinkButton";
 interface ContentFrameProps {
   projUrl: string;
   projName: string;
@@ -7,29 +7,13 @@ interface ContentFrameProps {
 
 export default function ContentFrame({ projUrl, projName, gitHubUrl }: ContentFrameProps) {
   return (
-    <div className="flex flex-col items-center h-50 w-70 p-6 rounded-lg shadow-lg z-0 justify-evenly">
+    <div className="flex flex-col items-center h-50 w-70 p-6 rounded-lg shadow-lg z-0 justify-evenly bg-black/10  border border-white/10">
       <h3 className="text-3xl font-bold">{projName}</h3>
       <div className="flex flex-row m-8 items-baseline justify-evenly w-full gap-7">
-        <a 
-      className="bg-gray-700 text-white w-25 h-10 rounded-md 
-                flex items-center justify-center
-                transition-all duration-300 ease-in-out
-              hover:bg-green-400 hover:shadow-xl hover:shadow-green-700/60
-              active:bg-green-400 active:shadow-xl active:shadow-green-700/60"
-        href={projUrl} 
-        target="_blank" 
-        rel="noopener noreferrer">Site</a>
+        <LinkButton link={projUrl} text="Demo" />
       
       {gitHubUrl && (
-            <a 
-           className="bg-gray-700 text-white w-25 h-10 rounded-md
-                flex items-center justify-center
-                transition-all duration-300 ease-in-out
-              hover:bg-cyan-400 hover:shadow-xl hover:shadow-cyan-700/60
-              active:bg-cyan-400 active:shadow-xl active:shadow-cyan-700/60"
-            href={gitHubUrl} 
-            target="_blank" 
-            rel="noopener noreferrer">GitHub</a>
+        <LinkButton link={gitHubUrl} text="Source" />
       )}
       </div>
     </div>

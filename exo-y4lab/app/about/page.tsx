@@ -6,7 +6,7 @@ export default function About() {
     <div className="z-0 max-h-70vh overflow-y-auto px-4 py-8 flex flex-col gap-6">
       <h2 className="text-5xl max-sm:text-3xl text-center">About me</h2>
      <section className="flex flex-col md:flex-row items-center justify-center gap-7 py-8 z-0">
-     <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+     <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
       <h3 className="text-3xl mb-2">Y4N</h3>
       <p className="text-sm max-sm:text-xs max-w-prose"> 
   I am a student interested in full-stack development.<br/><br/>
@@ -21,7 +21,7 @@ export default function About() {
  Everything will come in time.
             </p>
           </div>
-    <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+    <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
             <h2 className="text-3xl mb-2">Alternative Sanctum</h2>
             <p className=" text-sm max-sm:text-xs max-w-prose">
     Alternative Sanctum (formerly EXO-Y4) is my personal website for my portfolio, blog, and experiments, as the platform itself is part of my portfolio. <br/><br/>
@@ -33,7 +33,7 @@ export default function About() {
           </div>
      </section>
      <section className="flex flex-col md:flex-row items-center justify-center gap-7 py-8 z-0">
-     <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+     <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
       <h2 className="text-3xl mb-2">My Skills</h2>
               <ul className=" text-sm max-sm:text-xs list-none">
                 <li>HTML</li>
@@ -46,9 +46,9 @@ export default function About() {
                 <li>Coming soon</li>
               </ul>
       </div>
-    <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
+    <div className="w-full md:w-1/3 flex flex-col items-center md:items-start text-center md:text-left">
               <Image
-              src="/about2.jpg"
+              src="/about1.jpg"
               width={200}
               height={200}
               alt="Picture of the author"
@@ -61,58 +61,3 @@ export default function About() {
     </>
   );
 }
-
- <section className="flex flex-col items-center gap-7 py-8 z-0"> 
-       
-
-        <div className="w-full max-w-5xl px-4 flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8">
-
-         
-
-          <aside className="w-full md:w-1/2 flex justify-center md:justify-end z-0">
-            
-          </aside>
-        </div>
-
-        <div className="w-full max-w-5xl px-4 flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8">
-       
-        <aside className="w-full md:w-1/2 flex justify-center md:justify-start z-0">
-            <Image
-              src="/about2.jpg"
-              width={150}
-              height={150}
-              alt="Picture of the author"
-              className="rounded-lg shadow-lg"
-            />
-          </aside>
-
-          
-
-        </div>
-         <div className="w-full max-w-5xl px-4 flex flex-col md:flex-row items-center md:items-start md:justify-between gap-8">
-
-          <div className="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-2xl mb-2">My Skills</h2>
-              <ul className=" text-sm max-sm:text-xs list-disc list-inside">
-                <li>HTML</li>
-                <li>CSS && Tailwind</li>
-                <li>Javascript && Typescript</li>
-                <li>React && Next</li>
-                <li>Node.js && Express</li>
-                <li>MongoDB && Postgres</li>
-                <li>Git && GitHub</li>
-                <li>Coming soon</li>
-              </ul>
-          </div>
-
-          <aside className="w-full md:w-1/2 flex justify-center md:justify-end z-0">
-            <Image
-              src="/about3.jpg"
-              width={150}
-              height={150}
-              alt="Picture of the author"
-              className="rounded-lg shadow-lg" 
-            />
-          </aside>
-        </div>
-      </section>
