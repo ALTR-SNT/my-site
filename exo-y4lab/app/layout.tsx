@@ -13,7 +13,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: "Alternative Sanctum",
-  keywords: ["Alternative Sanctum", "Altr Snt", "EXO-Y4", "Web Development"],
+  keywords: ["Alternative Sanctum", "Alter Saint", "EXO-Y4"],
   description: "My personal website built with Next.js and React.",
 };
 
